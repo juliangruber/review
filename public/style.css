@@ -1,0 +1,34 @@
+body {
+  font : 20px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding : 20px 40px;
+}
+
+h1 span, h2 span {
+  color : lightgray;
+}
+
+h1 span {
+  font-weight : normal;
+  font-size : 40%;
+  color : lightblue;
+}
+
+#info {
+  margin-left : 1em;
+}
+
+img {
+          box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.80);
+     -moz-box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.80);
+  -webkit-box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.80);
+}
+
+img:hover {
+  cursor : pointer;
+}
+
+p { font-size : 75%; }
+
+.big { width : 100%; max-width : 1900px; }
+.medium { width : 87%; max-width : 1660px; }
+.small { width : 67%; max-width : 1280px; }

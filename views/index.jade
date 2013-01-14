@@ -1,0 +1,22 @@
+!!!
+html
+  head
+    title= title
+    link(rel='stylesheet',href='/style.css')
+  body
+    h1= title
+      span#info  be patient
+      span#loading
+      
+    p Be patient, images will start appearing after 10s. Click an image to reload.
+    
+    each url, title in sites
+      each resolution in resolutions
+        h2= title
+          span  #{resolution.name}
+        img(
+          src='/snapshot/#{encodeURIComponent(url)}/#{resolution.name}/',
+          style="width:#{resolution.width}; max-width:#{resolution.maxWidth}"
+        )
+        
+    script(src="/app.js")

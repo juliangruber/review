@@ -1,0 +1,25 @@
+{
+  "name": "review",
+  "version": "0.0.0",
+  "description": "Regression testing visual review tool",
+  "main": "index.js",
+  "repository": "git://github.com/juliangruber/review",
+  "keywords": [
+    "review",
+    "regression",
+    "visual",
+    "phantomjs",
+    "testing",
+    "test"
+  ],
+  "bin": {
+    "review": "./bin/review.js"
+  },
+  "author": "Julian Gruber <julian@juliangruber.com>",
+  "license": "MIT",
+  "dependencies": {
+    "optimist": "~0.3.5",
+    "jade": "~0.28.1",
+    "express": "~3.0.6"
+  }
+}
