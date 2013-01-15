@@ -5,50 +5,80 @@ Uses phantomjs to get screenshots of your running sites in different resolutions
 <img src="http://f.cl.ly/items/0z2H263Q302m1b2C452C/Screen%20Shot%202013-01-14%20at%2011.38.55%20PM.png" width="280">
 <img src="http://f.cl.ly/items/3T2k0x0N0M0T3y1j2Y1c/Screen%20Shot%202013-01-14%20at%2011.38.41%20PM.png" width="550">
 
-## usage
+## Usage
 
 ```bash
 $ npm install -g review
-$ review \
-    --sites='{"google":"http://google.com","facebook":"http://facebook.com"}' \
-    --resolutions='["1440x900","1280x1024"]' \
-    --port=3000 \
-    --wait=1000
+
+$ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}' \
 $ open http://localhost:3000/
-$ # or check
+
+$ # and check
 $ review --usage
+Host review
+Usage: review [options]
+
+Example: review --sites='{"google":"http://google.com"}'
+
+Options:
+  --port, -p         Port to listen on                                         [default: 4000]
+  --title, -t        Title of the review                                       [default: "Review"]
+  --sites, -s        Sites as JSON Object of strings                         
+  --resolutions, -r  Resolutions as JSON Array of strings                      [default: "[\"1200x800\"]"]
+  --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 10000]
+  --help, -h         Print usage instructions                                
+
 ```
 
-And as library:
-
-```bash
-$ npm install review
-```
+or
 
 ```js
 var review = require('review')
 
-var sites = {
-  'google' : 'http://google.com',
-  'facebook' : 'http://facebook.com',
-  'github' : 'https://github.com'
-}
-
-var resolutions = [
-  '1280x1024', '1900x1600', '800x600'
-]
-
 review()
   .title('My Review')
-  .sites(sites)
-  .resolutions(resolutions)
+  .sites({ google : 'http://google.com/' })
+  .resolutions(['1280x1024', '1900x1600', '800x600'])
   .wait(1000)
   .listen(3000)
-
-// review returns an express request handler
 ```
 
-## requirements
+## API
+
+### review()
+
+Returns an http / express request handler.
+
+### review#title(title)
+
+Display `title` in the review. Defaults to `Review`.
+
+### review#sites(sites | fn)
+
+Either pass an object with titles as keys and urls as values, or a `Function` that fetches the sites to be displayed. This way, on every page load that list is refreshed and you can e.g. display all sites present in your sitemap.
+
+```js
+review.sites(function (cb) {
+  request('http://my.si/temap', function (err, res) {
+    if (err) return cb(err)
+    cb(null, format(res))
+  })
+})
+```
+
+### review#resolutions(["WxH", "WxH", ...])
+
+Configure the resolutions to use for screenshots. Defaults to `["1200x800"]`
+
+### review#wait(x)
+
+PhantomJS will wait for `x` milliseconds after loading the page before it takes the screenshot, so you can make sure your page is completely loaded.
+
+### review#listen(port)
+
+Start the review server on port `port`.
+
+## Installation
 
 You need to have phantomjs installed, get it via
 
@@ -58,7 +88,14 @@ $ brew install phantomjs
 
 or check [phantomjs.org](http://phantomjs.org/)
 
-## license
+Then
+
+```bash
+$ npm install -g review # for cli
+$ npm install review    # for library
+```
+
+## License
 
 (MIT)
 
