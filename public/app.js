@@ -25,8 +25,14 @@ info.innerHTML = '0 / ' + images.length + ' loaded'
 images.forEach(function (image) {
   image.addEventListener('click', function () {
     reloads++
+    
+    // show gray placeholder in same dimensions
     var oldSrc = image.src + ''
+    var oldHeight = image.height
+    
     image.src = '/empty.jpg'
+    image.height = oldHeight
+    
     setTimeout(function () {
       image.src = oldSrc
       image.src += oldSrc.match(/\?/)
