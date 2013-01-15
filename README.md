@@ -9,7 +9,11 @@ Uses phantomjs to get screenshots of your running sites in different resolutions
 
 ```bash
 $ npm install -g review
-$ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}' --resolutions='["1440x900","1280x1024"]' --port 3000
+$ review \
+    --sites='{"google":"http://google.com","facebook":"http://facebook.com"}' \
+    --resolutions='["1440x900","1280x1024"]' \
+    --port=3000 \
+    --wait=1000
 $ open http://localhost:3000/
 $ # or check
 $ review --usage
@@ -38,6 +42,7 @@ review()
   .title('My Review')
   .sites(sites)
   .resolutions(resolutions)
+  .wait(1000)
   .listen(3000)
 
 // review returns an express request handler

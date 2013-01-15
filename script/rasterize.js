@@ -5,6 +5,7 @@ var url = args[1]
 var resolution = args[2]
 var width = resolution.split('x')[0]
 var height = resolution.split('y')[0]
+var timeout = args[3]
 
 page.viewportSize = {
   width : resolution.split('x')[0],
@@ -16,5 +17,5 @@ page.open(url, function (status) {
   window.setTimeout(function () {
     console.log(page.renderBase64('PNG'))
     phantom.exit()
-  }, 10000)
+  }, timeout)
 })
