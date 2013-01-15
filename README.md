@@ -66,6 +66,8 @@ review.sites(function (cb) {
 })
 ```
 
+See [example/sites.js](https://github.com/juliangruber/review/blob/master/example/sites.js)
+
 ### review#resolutions(["WxH", "WxH", ...])
 
 Configure the resolutions to use for screenshots. Defaults to `["1200x800"]`
