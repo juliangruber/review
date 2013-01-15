@@ -4,6 +4,7 @@ var loading = document.querySelector('#loading')
 
 var loaded = 0
 var reloads = 0
+var allLoaded = false
 
 /**
  * loading indicator
@@ -31,15 +32,18 @@ images.forEach(function (image) {
     var oldHeight = image.height
     
     image.src = '/empty.jpg'
-    image.height = oldHeight
+    image.style.height = oldHeight + 'px'
     
     setTimeout(function () {
       image.src = oldSrc
-      image.src += oldSrc.match(/\?/)
-        ? '&'
-        : '?'
-      image.src += 'reload'
-    }, 1000)
+      
+      function onLoad () {
+        image.style.height = 'auto'
+        image.removeEventListener('load', onLoad)
+      }
+      
+      image.addEventListener('load', onLoad)
+    }, 500)
   })
 })
 
@@ -49,8 +53,13 @@ images.forEach(function (image) {
  
 images.forEach(function (image) {
   image.addEventListener('load', function () {
-    loaded = ++loaded - reloads
-    info.innerHTML = loaded + ' / ' + images.length + ' loaded'
-    if (loaded == images.length) info.innerHTML = 'all loaded'
+    if (allLoaded) return
+    loaded++
+    info.innerHTML = (loaded-reloads) + ' / ' + images.length + ' loaded'
+    if ((loaded-reloads) == images.length) {
+      allLoaded = true
+      info.innerHTML = 'all loaded'
+      loading.innerHTML = ''
+    }
   })
 })
