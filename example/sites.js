@@ -1,4 +1,4 @@
-require('./')()
+require('../')()
   .title('My Review')
   .sites(function (cb) {
     setTimeout(function () {
