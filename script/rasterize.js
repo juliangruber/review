@@ -12,6 +12,12 @@ page.viewportSize = {
   height : resolution.split('x')[1]
 }
 
+// silence phantomjs
+page.onConsoleMessage = function () {}
+page.onConfirm = function () {}
+page.onPrompt = function () {}
+page.onError = function () {}
+
 page.open(url, function (status) {
   if (status !== 'success') throw 'Unable to load'
   window.setTimeout(function () {
