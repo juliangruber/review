@@ -7,8 +7,11 @@ html
     h1= title
       span#info  be patient
       span#loading
-      
-    p Be patient, images will start appearing after #{wait/1000}s. Click an image to reload.
+    
+    if cache
+      p Serving potentially cached screenshots. Click an image to refresh.
+    else
+      p Be patient, images will start appearing after #{wait/1000}s. Click an image to refresh.
     
     each url, title in sites
       each resolution in resolutions
