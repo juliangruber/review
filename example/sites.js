@@ -1,4 +1,6 @@
-require('../')()
+var review = require('..')
+
+review()
   .title('My Review')
   .sites(function (cb) {
     setTimeout(function () {
