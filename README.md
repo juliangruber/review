@@ -2,9 +2,9 @@
 
 _Get screenshots of all your running sites in different resolutions!_
 
-Updating large and possibly responsively designed sites can be a hassle. You never know if your change breakes anything
-on the other end of your sitemap, or in a certain resolution, except if have a look at every individual page...in every
-resolution you care about.
+Updating large and possibly responsively designed sites can be a hassle. You never know whether your change breakes
+anything on the other end of your sitemap, or in a certain resolution, except if have a look at every individual
+page...in every resolution you care about.
 
 The idea of `review` is not to test everything (and visual testing is hard) but rather use the human mind's excellent
 ability to quickly scan information and filter out what you need, i.e. what is broken.
