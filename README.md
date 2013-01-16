@@ -74,7 +74,7 @@ Configure the resolutions to use for screenshots. Defaults to `["1200x800"]`
 
 ### review#wait(x)
 
-PhantomJS will wait for `x` milliseconds after loading the page before it takes the screenshot, so you can make sure your page is completely loaded.
+PhantomJS will wait for `x` milliseconds after loading the page before it takes the screenshot, so you can make sure your page is completely loaded. Defaults to `0`.
 
 ### review#listen(port)
 
