@@ -35,7 +35,13 @@ images.forEach(function (image) {
     image.style.height = oldHeight + 'px'
     
     setTimeout(function () {
-      image.src = oldSrc
+      // force reload
+      var newSrc = oldSrc
+      newSrc += newSrc.match(/\?/)
+        ? '&reload'
+        : '?reload'
+        
+      image.src = newSrc
       
       function onLoad () {
         image.style.height = 'auto'

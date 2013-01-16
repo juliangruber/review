@@ -30,10 +30,11 @@ Example: review --sites='{"google":"http://google.com"}'
 Options:
   --port, -p         Port to listen on                                         [default: 4000]
   --title, -t        Title of the review                                       [default: "Review"]
-  --sites, -s        Sites as JSON Object of strings                         
+  --sites, -s        Sites as JSON Object of strings                           [required]
   --resolutions, -r  Resolutions as JSON Array of strings                      [default: "[\"1200x800\"]"]
-  --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 10000]
-  --help, -h         Print usage instructions                                
+  --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
+  --cache, -c        Cache snapshots for x seconds                             [default: false]
+  --help, -h         Print usage instructions                        
 
 ```
 
@@ -47,6 +48,7 @@ review()
   .sites({ google : 'http://google.com/' })
   .resolutions(['1280x1024', '1900x1600', '800x600'])
   .wait(1000)
+  .cache(60)
   .listen(4000)
 ```
 
@@ -82,6 +84,10 @@ Configure the resolutions to use for screenshots. Defaults to `["1200x800"]`
 ### review#wait(x)
 
 PhantomJS will wait for `x` milliseconds after loading the page before it takes the screenshot, so you can make sure your page is completely loaded. Defaults to `0`.
+
+### review#cache(x)
+
+Cache rendered snapshots for `x` seconds.
 
 ### review#listen(port)
 
