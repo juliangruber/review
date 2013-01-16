@@ -10,7 +10,7 @@ Uses phantomjs to get screenshots of your running sites in different resolutions
 ```bash
 $ npm install -g review
 
-$ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}' \
+$ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}'
 $ open http://localhost:3000/
 
 $ # and check
