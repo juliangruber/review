@@ -1,71 +1,49 @@
 var images = Array.prototype.slice.apply(document.querySelectorAll('img'))
-var info = document.querySelector('#info')
-var loading = document.querySelector('#loading')
-
-var loaded = 0
-var reloads = 0
-var allLoaded = false
+var links = Array.prototype.slice.apply(document.querySelectorAll('.refresh'))
+var refreshAll = document.querySelector('.refresh-all')
 
 /**
- * loading indicator
+ * refresh all
  */
- 
-var iv = setInterval(function () {
-  if (loaded == images.length) return clearInterval(iv)
+
+refreshAll.addEventListener('click', function () {
+  var msg = "You're about to refresh " + images.length + " snapshots. Are you sure?"
+  if (images.length > 10 && !confirm(msg)) return
+  images.forEach(refresh)
+})
+
+/**
+ * refresh
+ */
+
+links.forEach(function (link) {
+  link.addEventListener('click', function () {
+    refresh(link.parentNode.nextSibling.childNodes[0])
+  })
+})
+
+function refresh (image) {
+  // show gray placeholder in same dimensions
+  var oldSrc = image.src + ''
+  var oldHeight = image.height
   
-  loading.innerHTML += '.'
-  if (loading.innerHTML == '....') loading.innerHTML = ''
-}, 500)
-
-info.innerHTML = '0 / ' + images.length + ' loaded'
-
-/**
- * reload
- */
- 
-images.forEach(function (image) {
-  image.addEventListener('click', function () {
-    reloads++
-    
-    // show gray placeholder in same dimensions
-    var oldSrc = image.src + ''
-    var oldHeight = image.height
-    
-    image.src = '/empty.jpg'
-    image.style.height = oldHeight + 'px'
-    
-    setTimeout(function () {
-      // force reload
-      var newSrc = oldSrc
-      newSrc += newSrc.match(/\?/)
-        ? '&reload'
-        : '?reload'
-        
-      image.src = newSrc
+  image.src = '/empty.jpg'
+  image.style.height = oldHeight + 'px'
+  
+  setTimeout(function () {
+    // force refresh
+    var newSrc = oldSrc
+    newSrc += newSrc.match(/\?/)
+      ? '&refresh'
+      : '?refresh'
       
-      function onLoad () {
-        image.style.height = 'auto'
-        image.removeEventListener('load', onLoad)
-      }
-      
-      image.addEventListener('load', onLoad)
-    }, 500)
-  })
-})
-
-/**
- * loading status
- */
- 
-images.forEach(function (image) {
-  image.addEventListener('load', function () {
-    if (allLoaded) return
-    loaded++
-    info.innerHTML = (loaded-reloads) + ' / ' + images.length + ' loaded'
-    if ((loaded-reloads) == images.length) {
-      allLoaded = true
-      info.innerHTML = 'all loaded'
-      loading.innerHTML = ''
+    image.src = newSrc
+    
+    function onLoad () {
+      image.style.height = 'auto'
+      image.removeEventListener('load', onLoad)
     }
-  })
-})
+    
+    image.addEventListener('load', onLoad)
+  }, 500)
+}

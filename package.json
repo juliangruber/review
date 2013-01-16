@@ -20,6 +20,8 @@
   "dependencies": {
     "optimist": "~0.3.5",
     "jade": "~0.28.1",
-    "express": "~3.0.6"
+    "express": "~3.0.6",
+    "mkdirp": "~0.3.4",
+    "span": "0.0.5"
   }
 }

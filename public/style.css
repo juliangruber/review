@@ -3,18 +3,31 @@ body {
   padding : 20px 40px;
 }
 
+a {
+  cursor : pointer;
+}
+
+a.refresh-all {
+  color : lightblue;
+  font-weight : bold;
+  margin-left : 0.5ex;
+  position : relative;
+  top : -0.2ex;
+}
+
+a.refresh {
+  position : relative;
+  top : -0.2ex;
+  color : lightblue;
+}
+
 h1 span, h2 span {
   color : lightgray;
 }
 
 h1 span {
   font-weight : normal;
-  font-size : 40%;
   color : lightblue;
-}
-
-#info {
-  margin-left : 1em;
 }
 
 img {

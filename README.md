@@ -85,9 +85,9 @@ Configure the resolutions to use for screenshots. Defaults to `["1200x800"]`
 
 PhantomJS will wait for `x` milliseconds after loading the page before it takes the screenshot, so you can make sure your page is completely loaded. Defaults to `0`.
 
-### review#cache(x)
+### review#cache({ dir : 'directory', expires : 60 })
 
-Cache rendered snapshots for `x` seconds.
+Cache rendered snapshots for `expires` seconds in `dir`.
 
 ### review#listen(port)
 

@@ -4,7 +4,9 @@ var review = require('..')
 var optimist = require('optimist')
 
 var argv = optimist
-  .usage('Host review\nUsage: $0 [options]\n\nExample: review --sites=\'{"google":"http://google.com"}\'')
+  .usage(
+    'Host review\nUsage: $0 [options]\n\n'+
+    'Examples: review --sites=\'{"google":"http://google.com"}\' --cache=\'{"dir":"cache","expires":100}\'')
   .demand(['sites'])
   
   .describe('port', 'Port to listen on')
@@ -26,8 +28,8 @@ var argv = optimist
   .default('wait', 0)
   .alias('w', 'wait')
   
-  .describe('cache', 'Cache snapshots for x seconds')
-  .default('cache', false)
+  .describe('cache', 'Cache snapshots for x milliseconds')
+  .default('cache', 'false')
   .alias('c', 'cache')
   
   .describe('help', 'Print usage instructions')
@@ -41,6 +43,7 @@ review()
   .sites(JSON.parse(argv.sites))
   .resolutions(JSON.parse(argv.resolutions))
   .wait(argv.wait)
+  .cache(argv.cache? { dir : __dirname + '/cache', expires : argv.cache } : false)
   .listen(argv.port, function () {
     console.log('-> Review on port ' + argv.port)
   })
