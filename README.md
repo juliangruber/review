@@ -18,7 +18,7 @@ ability to quickly scan information and filter out what you need, i.e. what is b
 $ npm install -g review
 
 $ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}'
-$ open http://localhost:3000/
+$ open http://localhost:4000/
 
 $ # and check
 $ review --usage
@@ -47,7 +47,7 @@ review()
   .sites({ google : 'http://google.com/' })
   .resolutions(['1280x1024', '1900x1600', '800x600'])
   .wait(1000)
-  .listen(3000)
+  .listen(4000)
 ```
 
 ## API
