@@ -1,7 +1,7 @@
 var review = require('..')
 
 review()
-  .title('Review')
+  .title('Super Review')
   .sites({ 'github' : 'https://github.com/' })
   .resolutions(['1440x900', '1200x800', '640x480'])
   .cache({
