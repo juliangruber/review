@@ -9,8 +9,7 @@ page...in every resolution you care about.
 The idea of `review` is not to test everything (and visual testing is hard) but rather use the human mind's excellent
 ability to quickly scan information and filter out what you need, i.e. what is broken.
 
-<img src="http://f.cl.ly/items/0z2H263Q302m1b2C452C/Screen%20Shot%202013-01-14%20at%2011.38.55%20PM.png" width="280">
-<img src="http://f.cl.ly/items/3T2k0x0N0M0T3y1j2Y1c/Screen%20Shot%202013-01-14%20at%2011.38.41%20PM.png" width="550">
+![preview](http://f.cl.ly/items/433L3B2a42140B2c2r2M/screen.png)
 
 ## Usage
 
