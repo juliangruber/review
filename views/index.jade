@@ -2,7 +2,7 @@
 html
   head
     title= title
-    link(rel='stylesheet',href='/style.css')
+    link(rel='stylesheet',href='style.css')
   body
     h1= title
       a.refresh-all ⟲
@@ -20,8 +20,8 @@ html
           a.refresh ⟲
         a(href="#{decodeURIComponent(url)}",target="_blank")
           img(
-            src='/snapshot/#{url}/#{resolution.name}/#{wait}',
+            src='snapshot/#{url}/#{resolution.name}/#{wait}',
             style="width:#{resolution.width}; max-width:#{resolution.maxWidth}"
           )
         
-    script(src="/app.js")
+    script(src="app.js")
