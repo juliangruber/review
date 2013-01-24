@@ -10,6 +10,7 @@ review()
     }, 10)
   })
   .resolutions(['1900x1600', '1280x1024', '800x600'])
+  .cut(true)
   .listen(5000, function () {
     console.log('-> Review on port 5000')
   })

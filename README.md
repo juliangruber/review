@@ -33,6 +33,7 @@ Options:
   --resolutions, -r  Resolutions as JSON Array of strings                      [default: "[\"1200x800\"]"]
   --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
   --cache, -c        Cache snapshots for x seconds                             [default: false]
+  --cut              Cut snapshots to exact screen size                        [default: false]
   --help, -h         Print usage instructions                        
 
 ```
@@ -89,6 +90,10 @@ PhantomJS will wait for `x` milliseconds after loading the page before it takes 
 ### review#cache({ dir : 'directory', expires : 60 })
 
 Cache rendered snapshots for `expires` seconds in `dir`.
+
+### review#cut(bool)
+
+If `bool` is `true` then screenshots will be cut to the exact dimensions that you specified. Without this pages can be longer than your specified height.
 
 ### review#listen(port)
 

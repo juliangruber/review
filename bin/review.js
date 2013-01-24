@@ -29,8 +29,11 @@ var argv = optimist
   .alias('w', 'wait')
   
   .describe('cache', 'Cache snapshots for x milliseconds')
-  .default('cache', 'false')
+  .default('cache', false)
   .alias('c', 'cache')
+  
+  .describe('cut', 'Cut snapshots to exact screen size')
+  .default('cut', false)
   
   .describe('help', 'Print usage instructions')
   .alias('h', 'help')
@@ -43,6 +46,7 @@ review()
   .sites(JSON.parse(argv.sites))
   .resolutions(JSON.parse(argv.resolutions))
   .wait(argv.wait)
+  .cut(argv.cut)
   .cache(argv.cache? { dir : __dirname + '/cache', expires : argv.cache } : false)
   .listen(argv.port, function () {
     console.log('-> Review on port ' + argv.port)
