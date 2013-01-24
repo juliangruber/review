@@ -4,12 +4,20 @@ var args = require('system').args
 var url = args[1]
 var resolution = args[2]
 var width = resolution.split('x')[0]
-var height = resolution.split('y')[0]
+var height = resolution.split('x')[1]
 var timeout = args[3]
+var cut = args[4] == 'true'
 
 page.viewportSize = {
-  width : resolution.split('x')[0],
-  height : resolution.split('x')[1]
+  width : width,
+  height : height
+}
+
+if (cut) page.clipRect = {
+  top: 0,
+  left: 0,
+  width: width,
+  height: height
 }
 
 // silence phantomjs
