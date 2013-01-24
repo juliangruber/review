@@ -11,6 +11,9 @@ ability to quickly scan information and filter out what you need, i.e. what is b
 
 ![preview](http://f.cl.ly/items/433L3B2a42140B2c2r2M/screen.png)
 
+If you want to review many sites at once, like microsoft and bootstrap instead of only multiple pages of the microsoft
+website, check out [review-host](https://github.com/juliangruber/review-host).
+
 ## Usage
 
 ```bash
