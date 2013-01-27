@@ -27,7 +27,7 @@ $ review --usage
 Host review
 Usage: review [options]
 
-Example: review --sites='{"google":"http://google.com"}'
+Example: review --sites='{"google":"http://google.com"}' --cookie='{"name":"connect.sid","value":"s%3AOjB","domain":"google.com"} --wait 5000 --resolutions='["1920x1280","1200x800"]'
 
 Options:
   --port, -p         Port to listen on                                         [default: 4000]
@@ -37,7 +37,8 @@ Options:
   --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
   --cache, -c        Cache snapshots for x seconds                             [default: false]
   --cut              Cut snapshots to exact screen size                        [default: false]
-  --help, -h         Print usage instructions                        
+  --cookie           Cookie object, if your site needs it                      [default: null]
+  --help, -h         Print usage instructions
 
 ```
 

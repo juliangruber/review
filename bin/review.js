@@ -34,7 +34,10 @@ var argv = optimist
   
   .describe('cut', 'Cut snapshots to exact screen size')
   .default('cut', false)
-  
+
+  .describe('cookie', 'Cookie object, if your site needs it')
+  .default('cookie', null)
+
   .describe('help', 'Print usage instructions')
   .alias('h', 'help')
   .argv
@@ -48,6 +51,7 @@ review()
   .wait(argv.wait)
   .cut(argv.cut)
   .cache(argv.cache? { dir : __dirname + '/cache', expires : argv.cache } : false)
+  .cookie(JSON.parse(argv.cookie))
   .listen(argv.port, function () {
     console.log('-> Review on port ' + argv.port)
   })
