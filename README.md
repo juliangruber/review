@@ -55,6 +55,14 @@ review()
     dir : __dirname + '/cache/',
     expires : 60
   })
+  .cookie({
+    'name':     'connect.sid',   /* required property */
+    'value':    's%3A4eZ6a00e1jot1EF6HhqqmBCC.RgLmbqI8BQblhHTuUSIfX3ejWexW1x7rGEGcVOgMY%2BU',  /* required property */
+    'domain':   'localhost',           /* required property */
+    'path':     '/',
+    'httponly': true,
+    'secure':   false
+    })
   .listen(4000)
 ```
 
