@@ -107,12 +107,7 @@ Cache rendered snapshots for `expires` seconds in `dir`.
 
 If `bool` is `true` then screenshots will be cut to the exact dimensions that you specified. Without this pages can be longer than your specified height.
 
-### review#cookie({'name':     'Valid-Cookie-Name',   /* required property */
-                   'value':    'Valid-Cookie-Value',  /* required property */
-                   'domain':   'localhost',           /* required property */
-                   'path':     '/foo',
-                   'httponly': true,
-                   'secure':   false)
+### review#cookie({'name':'Valid-Cookie-Name', 'value':'Valid-Cookie-Value', 'domain':'localhost', 'path':'/foo', 'httponly':true, 'secure':false)
 
 Configure the cookie that has to be passed, if your site needs it.
 
