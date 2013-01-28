@@ -27,7 +27,7 @@ $ review --usage
 Host review
 Usage: review [options]
 
-Example: review --sites='{"google":"http://google.com"}' --cookie='{"name":"SID","value":"s%3AOjB","domain":"google.com"}' --wait 5000 --resolutions='["1920x1280","1200x800"]'
+Example: review --sites='{"localhost":"http://localhost:8080"}' --cookie='{"name":"SID","value":"s%3AOjB","domain":"localhost"}' --wait 5000 --resolutions='["1920x1280","1200x800"]'
 
 Options:
   --port, -p         Port to listen on                                         [default: 4000]
