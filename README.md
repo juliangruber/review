@@ -27,7 +27,7 @@ $ review --usage
 Host review
 Usage: review [options]
 
-Example: review --sites='{"google":"http://google.com"}' --cookie='{"name":"connect.sid","value":"s%3AOjB","domain":"google.com"} --wait 5000 --resolutions='["1920x1280","1200x800"]'
+Example: review --sites='{"google":"http://google.com"}' --cookie='{"name":"SID","value":"s%3AOjB","domain":"google.com"}' --wait 5000 --resolutions='["1920x1280","1200x800"]'
 
 Options:
   --port, -p         Port to listen on                                         [default: 4000]
@@ -107,13 +107,22 @@ Cache rendered snapshots for `expires` seconds in `dir`.
 
 If `bool` is `true` then screenshots will be cut to the exact dimensions that you specified. Without this pages can be longer than your specified height.
 
+### review#cookie({'name':     'Valid-Cookie-Name',   /* required property */
+                   'value':    'Valid-Cookie-Value',  /* required property */
+                   'domain':   'localhost',           /* required property */
+                   'path':     '/foo',
+                   'httponly': true,
+                   'secure':   false)
+
+Configure the cookie that has to be passed, if your site needs it.
+
 ### review#listen(port)
 
 Start the review server on port `port`.
 
 ## Installation
 
-You need to have phantomjs installed, get it via
+You need to have phantomjs 1.7 or above installed, get it via
 
 ```bash
 $ brew install phantomjs
