@@ -27,7 +27,7 @@ $ review --usage
 Host review
 Usage: review [options]
 
-Example: review --sites='{"google":"http://google.com"}'
+Example: review --sites='{"localhost":"http://localhost:8080"}' --cookie='{"name":"SID","value":"s%3AOjB","domain":"localhost"}' --wait 5000 --resolutions='["1920x1280","1200x800"]'
 
 Options:
   --port, -p         Port to listen on                                         [default: 4000]
@@ -37,7 +37,8 @@ Options:
   --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
   --cache, -c        Cache snapshots for x seconds                             [default: false]
   --cut              Cut snapshots to exact screen size                        [default: false]
-  --help, -h         Print usage instructions                        
+  --cookie           Cookie object, if your site needs it                      [default: null]
+  --help, -h         Print usage instructions
 
 ```
 
@@ -54,6 +55,14 @@ review()
     dir : __dirname + '/cache/',
     expires : 60
   })
+  .cookie({
+    'name':     'connect.sid',   /* required property */
+    'value':    's%3A4eZ6a00e1jot1EF6HhqqmBCC.RgLmbqI8BQblhHTuUSIfX3ejWexW1x7rGEGcVOgMY%2BU',  /* required property */
+    'domain':   'localhost',           /* required property */
+    'path':     '/',
+    'httponly': true,
+    'secure':   false
+    })
   .listen(4000)
 ```
 
@@ -98,13 +107,17 @@ Cache rendered snapshots for `expires` seconds in `dir`.
 
 If `bool` is `true` then screenshots will be cut to the exact dimensions that you specified. Without this pages can be longer than your specified height.
 
+### review#cookie({'name':'Valid-Cookie-Name', 'value':'Valid-Cookie-Value', 'domain':'localhost', 'path':'/foo', 'httponly':true, 'secure':false)
+
+Configure the cookie that has to be passed, if your site needs it.
+
 ### review#listen(port)
 
 Start the review server on port `port`.
 
 ## Installation
 
-You need to have phantomjs installed, get it via
+You need to have phantomjs 1.7 or above installed, get it via
 
 ```bash
 $ brew install phantomjs
