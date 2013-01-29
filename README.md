@@ -36,6 +36,7 @@ Options:
   --resolutions, -r  Resolutions as JSON Array of strings                      [default: "[\"1200x800\"]"]
   --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
   --cache, -c        Cache snapshots for x seconds                             [default: false]
+  --cookie           Make PhatomJS use this cookie-object
   --cut              Cut snapshots to exact screen size                        [default: false]
   --help, -h         Print usage instructions                        
 
@@ -53,6 +54,11 @@ review()
   .cache({
     dir : __dirname + '/cache/',
     expires : 60
+  })
+  .cookie({
+    name : 'cookie monster',
+    value : 'i eat them!',
+    domain : 'google.com'
   })
   .listen(4000)
 ```
@@ -94,6 +100,24 @@ PhantomJS will wait for `x` milliseconds after loading the page before it takes 
 
 Cache rendered snapshots for `expires` seconds in `dir`.
 
+### review#cookie(cookie)
+
+PhatomJS will use this cookie when requesting all pages.
+
+The cookie format is:
+
+```js
+{
+  name : 'valid-cookie-name',             // required
+  value : 'valid-cookie-value',           // required
+  domain : 'the-domain.com',              // required
+  path : '/',
+  httponly : true,
+  secure : false,
+  expires : (new Date()).getTime() + 3600 // expires in 1 hour
+}
+```
+
 ### review#cut(bool)
 
 If `bool` is `true` then screenshots will be cut to the exact dimensions that you specified. Without this pages can be longer than your specified height.
@@ -104,7 +128,7 @@ Start the review server on port `port`.
 
 ## Installation
 
-You need to have phantomjs installed, get it via
+You need to have phantomjs (>=1.7 if you want to use cookies) installed, get it via
 
 ```bash
 $ brew install phantomjs
@@ -118,6 +142,11 @@ Then
 $ npm install -g review # for cli
 $ npm install review    # for library
 ```
+
+## Contibutors
+
+* [juliangruber](https://github.com/juliangruber)
+* [jothirams](https://github.com/jothirams)
 
 ## License
 

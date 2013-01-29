@@ -32,6 +32,9 @@ var argv = optimist
   .default('cache', false)
   .alias('c', 'cache')
   
+  .describe('cookie', 'Make PhatomJS use this cookie-object')
+  .default('cookie', {})
+  
   .describe('cut', 'Cut snapshots to exact screen size')
   .default('cut', false)
   
@@ -46,6 +49,7 @@ review()
   .sites(JSON.parse(argv.sites))
   .resolutions(JSON.parse(argv.resolutions))
   .wait(argv.wait)
+  .cookie(JSON.parse(argv.cookie))
   .cut(argv.cut)
   .cache(argv.cache? { dir : __dirname + '/cache', expires : argv.cache } : false)
   .listen(argv.port, function () {
