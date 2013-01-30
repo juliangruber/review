@@ -6,7 +6,7 @@ var optimist = require('optimist')
 var argv = optimist
   .usage(
     'Host review\nUsage: $0 [options]\n\n'+
-    'Examples: review --sites=\'{"google":"http://google.com"}\' --cache=\'{"dir":"cache","expires":100}\'')
+    'Examples: review --sites=\'{"google":"http://google.com"}\' --cache=100')
   .demand(['sites'])
   
   .describe('port', 'Port to listen on')
@@ -33,7 +33,7 @@ var argv = optimist
   .alias('c', 'cache')
   
   .describe('cookie', 'Make PhatomJS use this cookie-object')
-  .default('cookie', {})
+  .default('cookie', '{}')
   
   .describe('cut', 'Cut snapshots to exact screen size')
   .default('cut', false)
