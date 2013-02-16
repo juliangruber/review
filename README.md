@@ -9,10 +9,9 @@ page...in every resolution you care about.
 The idea of `review` is not to test everything (and visual testing is hard) but rather use the human mind's excellent
 ability to quickly scan information and filter out what you need, i.e. what is broken.
 
-![preview](http://f.cl.ly/items/433L3B2a42140B2c2r2M/screen.png)
+![preview](http://f.cl.ly/items/3O1w3Y0X2i0s1F1M273x/Screen%20Shot%202013-01-24%20at%2012.50.38%20PM.png)
 
-If you want to review many sites at once, like microsoft and bootstrap instead of only multiple pages of the microsoft
-website, check out [review-host](https://github.com/juliangruber/review-host).
+This screenshot is from [review-host](https://github.com/juliangruber/review-host), which hosts multiple reviews in one server.
 
 ## Usage
 
