@@ -2,16 +2,20 @@
 
 _Get screenshots of all your running sites in different resolutions!_
 
-Updating large and possibly responsively designed sites can be a hassle. You never know whether your change breakes
-anything on the other end of your sitemap, or in a certain resolution, except if have a look at every individual
+Updating large and possibly responsively designed sites can be a hassle. You
+never know whether your change breakes anything on the other end of your
+sitemap, or in a certain resolution, except if have a look at every individual
 page...in every resolution you care about.
 
-The idea of `review` is not to test everything (and visual testing is hard) but rather use the human mind's excellent
-ability to quickly scan information and filter out what you need, i.e. what is broken.
+The idea of `review` is not to test everything (and visual testing is hard) but
+rather use the human mind's excellent ability to quickly scan information and
+filter out what you need, i.e. what is broken.
 
 ![preview](http://f.cl.ly/items/3O1w3Y0X2i0s1F1M273x/Screen%20Shot%202013-01-24%20at%2012.50.38%20PM.png)
 
-This screenshot is from [review-host](https://github.com/juliangruber/review-host), which hosts multiple reviews in one server.
+This screenshot is from
+[review-host](https://github.com/juliangruber/review-host), which hosts multiple
+reviews in one server.
 
 ## Usage
 
@@ -74,7 +78,9 @@ Display `title` in the review. Defaults to `Review`.
 
 ### review#sites(sites | fn)
 
-Either pass an object with titles as keys and urls as values, or a `Function` that fetches the sites to be displayed. This way, on every page load that list is refreshed and you can e.g. display all sites present in your sitemap.
+Either pass an object with titles as keys and urls as values, or a `Function`
+that fetches the sites to be displayed. This way, on every page load that list
+is refreshed and you can e.g. display all sites present in your sitemap.
 
 ```js
 review.sites(function (cb) {
@@ -85,7 +91,7 @@ review.sites(function (cb) {
 })
 ```
 
-See [example/sites.js](https://github.com/juliangruber/review/blob/master/example/sites.js)
+See [example/sites](https://github.com/juliangruber/review/blob/master/example/sites/sites.js)
 
 ### review#resolutions(["WxH", "WxH", ...])
 
@@ -93,7 +99,9 @@ Configure the resolutions to use for screenshots. Defaults to `["1200x800"]`
 
 ### review#wait(x)
 
-PhantomJS will wait for `x` milliseconds after loading the page before it takes the screenshot, so you can make sure your page is completely loaded. Defaults to `0`.
+PhantomJS will wait for `x` milliseconds after loading the page before it takes
+the screenshot, so you can make sure your page is completely loaded.
+Defaults to `0`.
 
 ### review#cache({ dir : 'directory', expires : 60 })
 
@@ -119,7 +127,8 @@ The cookie format is:
 
 ### review#cut(bool)
 
-If `bool` is `true` then screenshots will be cut to the exact dimensions that you specified. Without this pages can be longer than your specified height.
+If `bool` is `true` then screenshots will be cut to the exact dimensions that
+you specified. Without this pages can be longer than your specified height.
 
 ### review#listen(port)
 
@@ -127,7 +136,8 @@ Start the review server on port `port`.
 
 ## Installation
 
-You need to have phantomjs (>=1.7 if you want to use cookies) installed, get it via
+You need to have phantomjs (>=1.7 if you want to use cookies) installed, get it
+via
 
 ```bash
 $ brew install phantomjs

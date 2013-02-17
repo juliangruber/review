@@ -1,4 +1,4 @@
-var review = require('..')
+var review = require('../..')
 
 review()
   .title('Super Review')

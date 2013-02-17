@@ -1,17 +1,17 @@
 !!!
 html
   head
-    title= title
+    title= settings.title
     link(rel='stylesheet',href='style.css')
   body
-    h1= title
+    h1= settings.title
       a.refresh-all ⟲
     
-    if cache
+    if settings.cache
       p Images are cached for #{expires}. Refresh at will.
     else
-      if wait
-        p Be patient, images will start appearing after #{wait/1000}s. Refresh at will.
+      if settings.wait
+        p Be patient, images will start appearing after #{settings.wait/1000}s. Refresh at will.
     
     each url, title in sites
       each resolution in resolutions
@@ -20,7 +20,7 @@ html
           a.refresh ⟲
         a(href="#{decodeURIComponent(url)}",target="_blank")
           img(
-            src='snapshot/#{url}/#{resolution.name}/#{wait}',
+            src='snapshot/#{url}/#{resolution.name}/#{settings.wait}',
             style="width:#{resolution.width}; max-width:#{resolution.maxWidth}"
           )
         
