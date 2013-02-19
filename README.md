@@ -22,7 +22,8 @@ reviews in one server.
 ```bash
 $ npm install -g review
 
-$ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}'
+$ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}' \
+  --resolutions='["1280x1024", "1900x1600", "800x600"]'
 $ open http://localhost:4000/
 
 $ # and check
