@@ -1,6 +1,6 @@
 {
   "name": "review",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "Regression testing visual review tool",
   "main": "index.js",
   "repository": "git://github.com/juliangruber/review",
