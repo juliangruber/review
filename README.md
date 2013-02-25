@@ -137,16 +137,7 @@ Start the review server on port `port`.
 
 ## Installation
 
-You need to have phantomjs (>=1.7 if you want to use cookies) installed, get it
-via
-
-```bash
-$ brew install phantomjs
-```
-
-or check [phantomjs.org](http://phantomjs.org/)
-
-Then
+There is no need to have phantomjs installed, it will be fetched together with `review`.
 
 ```bash
 $ npm install -g review # for cli
