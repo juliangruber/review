@@ -46,7 +46,7 @@ Options:
 
 ```
 
-or
+or create a review programmatically:
 
 ```js
 var review = require('review')
@@ -65,6 +65,14 @@ review()
     domain : 'google.com'
   })
   .listen(4000)
+```
+
+---
+
+Windows doesn't like single quote marks (thanks [@jdarling](https://github.com/jdarling) for pointing this out) so you can only use double quotes:
+
+```bash
+review --sites="{\"google\":\"http://google.com\",\"facebook\":\"http://facebook.com\"}" --resolutions="[\"1280x1024\", \"1900x1600\", \"800x600\"]"
 ```
 
 ## API
