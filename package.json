@@ -1,6 +1,6 @@
 {
   "name": "review",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "Regression testing visual review tool",
   "main": "index.js",
   "repository": "git://github.com/juliangruber/review",
@@ -23,6 +23,6 @@
     "express": "~3.0.6",
     "mkdirp": "~0.3.4",
     "span": "0.0.5",
-    "phantomjs": "1.8.1-3"
+    "phantomjs": "~1.9.0-1"
   }
 }
