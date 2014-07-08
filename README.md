@@ -40,7 +40,7 @@ Options:
   --resolutions, -r  Resolutions as JSON Array of strings                      [default: "[\"1200x800\"]"]
   --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
   --cache, -c        Cache snapshots for x milliseconds                        [default: false]
-  --cookie           Make PhatomJS use this cookie-object                      [default: "{}"]
+  --cookies          Adds a cookie to PhatomJS. Can be called multiple times   [default: "[]"]
   --cut              Cut snapshots to exact screen size                        [default: false]
   --help, -h         Print usage instructions
 
@@ -59,7 +59,7 @@ review()
     dir : __dirname + '/cache/',
     expires : 60
   })
-  .cookie({
+  .cookies({
     name : 'cookie monster',
     value : 'i eat them!',
     domain : 'google.com'
@@ -116,9 +116,10 @@ Defaults to `0`.
 
 Cache rendered snapshots for `expires` seconds in `dir`.
 
-### review#cookie(cookie)
+### review#cookies(cookie)
 
-PhatomJS will use this cookie when requesting all pages.
+PhatomJS will use this cookie when requesting all pages. A new cookie is
+added for every function call.
 
 The cookie format is:
 
@@ -142,36 +143,6 @@ you specified. Without this pages can be longer than your specified height.
 ### review#listen(port)
 
 Start the review server on port `port`.
-
-
-## cookie command line example
-
-`--cookie` accepts either an object with cookie parameters:
-
-    review --sites='{"google":"http://google.com"}' --cookie='{"name":"SESS_ID","value":"teapot","domain":"google.com"}'
-
-or an array of objects called `cookies` with cookie paramers. Here is an example JSON:
-
-```json
-{"cookies":[
-  {
-    "name": "SESS_ID",
-    "value": "teapot",
-    "domain": "google.com"
-  },
-  {
-    "name": "last_visited",
-    "value": "1404826515",
-    "domain": "google.com"
-  }
-]}
-```
-
-Which translates to the following command line argument:
-
-```bash
-review --sites='{"google":"http://google.com"}' --cookie='{"cookies":[{"name":"SESS_ID","value":"teapot","domain":"google.com"},{"name":"last_visited","value":"1404826515","domain":"google.com"}]}'
-```
 
 ## Installation
 

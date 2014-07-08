@@ -7,7 +7,7 @@ var width = resolution.split('x')[0]
 var height = resolution.split('x')[1]
 var timeout = args[3]
 var cut = args[4] == 'true'
-var cookie = args[5]
+var cookies = args[5]
 
 page.viewportSize = {
   width : width,
@@ -21,15 +21,8 @@ if (cut) page.clipRect = {
   height: height
 }
 
-if (cookie) {
-  cookie = JSON.parse(cookie)
-
-  if (cookie.cookies) {
-    cookie.cookies.forEach(function(each) { phantom.addCookie(each) })
-  } else {
-    phantom.addCookie(cookie)
-  }
-}
+cookies = JSON.parse(cookies)
+cookies.forEach(function(cookie) { phantom.addCookie(cookie) })
 
 // silence phantomjs
 page.onConsoleMessage = function () {}
