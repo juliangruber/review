@@ -42,7 +42,7 @@ Options:
   --cache, -c        Cache snapshots for x milliseconds                        [default: false]
   --cookie           Make PhatomJS use this cookie-object                      [default: "{}"]
   --cut              Cut snapshots to exact screen size                        [default: false]
-  --help, -h         Print usage instructions                                
+  --help, -h         Print usage instructions
 
 ```
 
@@ -143,6 +143,36 @@ you specified. Without this pages can be longer than your specified height.
 
 Start the review server on port `port`.
 
+
+## `--cookie` command line example
+
+`--cookie` accepts either an object with cookie parameters:
+
+    review --sites='{"google":"http://google.com"}' --cookie='{"name":"SESS_ID","value":"teapot","domain":".example.com"}'
+
+or an array of objects called `cookies` with cookie paramers. Here is an example JSON:
+
+```json
+{"cookies":[
+  {
+    "name": "SESS_ID",
+    "value": "teapot",
+    "domain": ".example.com"
+  },
+  {
+    "name": "last_visited",
+    "value": "1404826515",
+    "domain": ".example.com"
+  }
+]}
+```
+
+Which translates to the following command line argument:
+
+```bash
+review --sites='{"google":"http://google.com"}' --cookie='{"cookies":[{"name":"SESS_ID","value":"teapot","domain":".example.com"},{"name":"last_visited","value":"1404826515","domain":".example.com"}]}'
+```
+
 ## Installation
 
 There is no need to have phantomjs installed, it will be fetched together with `review`.
@@ -156,6 +186,7 @@ $ npm install review    # for library
 
 * [juliangruber](https://github.com/juliangruber)
 * [jothirams](https://github.com/jothirams)
+* [jzelenkov](https://github.com/jzelenkov)
 
 ## License
 

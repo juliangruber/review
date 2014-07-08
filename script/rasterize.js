@@ -21,7 +21,15 @@ if (cut) page.clipRect = {
   height: height
 }
 
-if (cookie) phantom.addCookie(JSON.parse(cookie))
+if (cookie) {
+  cookie = JSON.parse(cookie)
+
+  if (cookie.cookies) {
+    cookie.cookies.forEach(function(each) { phantom.addCookie(each) })
+  } else {
+    phantom.addCookie(cookie)
+  }
+}
 
 // silence phantomjs
 page.onConsoleMessage = function () {}
