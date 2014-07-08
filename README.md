@@ -144,11 +144,11 @@ you specified. Without this pages can be longer than your specified height.
 Start the review server on port `port`.
 
 
-## `--cookie` command line example
+## cookie command line example
 
 `--cookie` accepts either an object with cookie parameters:
 
-    review --sites='{"google":"http://google.com"}' --cookie='{"name":"SESS_ID","value":"teapot","domain":".example.com"}'
+    review --sites='{"google":"http://google.com"}' --cookie='{"name":"SESS_ID","value":"teapot","domain":"google.com"}'
 
 or an array of objects called `cookies` with cookie paramers. Here is an example JSON:
 
@@ -157,12 +157,12 @@ or an array of objects called `cookies` with cookie paramers. Here is an example
   {
     "name": "SESS_ID",
     "value": "teapot",
-    "domain": ".example.com"
+    "domain": "google.com"
   },
   {
     "name": "last_visited",
     "value": "1404826515",
-    "domain": ".example.com"
+    "domain": "google.com"
   }
 ]}
 ```
@@ -170,7 +170,7 @@ or an array of objects called `cookies` with cookie paramers. Here is an example
 Which translates to the following command line argument:
 
 ```bash
-review --sites='{"google":"http://google.com"}' --cookie='{"cookies":[{"name":"SESS_ID","value":"teapot","domain":".example.com"},{"name":"last_visited","value":"1404826515","domain":".example.com"}]}'
+review --sites='{"google":"http://google.com"}' --cookie='{"cookies":[{"name":"SESS_ID","value":"teapot","domain":"google.com"},{"name":"last_visited","value":"1404826515","domain":"google.com"}]}'
 ```
 
 ## Installation
