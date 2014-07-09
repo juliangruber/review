@@ -44,7 +44,7 @@ var argv = optimist
 
 if (argv.help || !argv.sites) return optimist.showHelp()
 
-var cookies = "[" + argv.cookie + "]" // wrap in curly brackets, not a valid JSON otherwise
+var cookies = "[" + argv.cookie + "]" // wrap in square brackets, not a valid JSON otherwise
 
 review()
   .title(argv.title)
