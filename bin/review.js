@@ -32,8 +32,8 @@ var argv = optimist
   .default('cache', false)
   .alias('c', 'cache')
 
-  .describe('cookies', 'Adds a cookie to PhatomJS. Can be called multiple times')
-  .default('cookies', '')
+  .describe('cookie', 'Adds a cookie to PhatomJS. Can be called multiple times')
+  .default('cookie', '{}')
 
   .describe('cut', 'Cut snapshots to exact screen size')
   .default('cut', false)
@@ -44,14 +44,14 @@ var argv = optimist
 
 if (argv.help || !argv.sites) return optimist.showHelp()
 
-var cookies = "[" + argv.cookies + "]" // wrap in curly brackets, not a valid JSON otherwise
+var cookies = "[" + argv.cookie + "]" // wrap in curly brackets, not a valid JSON otherwise
 
 review()
   .title(argv.title)
   .sites(JSON.parse(argv.sites))
   .resolutions(JSON.parse(argv.resolutions))
   .wait(argv.wait)
-  .cookies(cookies)
+  .cookies(JSON.parse(cookies))
   .cut(argv.cut)
   .cache(argv.cache? { dir : __dirname + '/cache', expires : argv.cache } : false)
   .listen(argv.port, function () {
