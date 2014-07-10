@@ -22,7 +22,9 @@ if (cut) page.clipRect = {
 }
 
 cookies = JSON.parse(cookies)
-cookies.forEach(function(cookie) { phantom.addCookie(cookie) })
+cookies.forEach(function(cookie) {
+  phantom.addCookie(cookie)
+})
 
 // silence phantomjs
 page.onConsoleMessage = function () {}

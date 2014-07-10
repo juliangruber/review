@@ -32,8 +32,7 @@ var argv = optimist
   .default('cache', false)
   .alias('c', 'cache')
 
-  .describe('cookie', 'Adds a cookie to PhatomJS. Can be called multiple times')
-  .default('cookie', '{}')
+  .describe('cookie', 'Add a cookie to PhatomJS')
 
   .describe('cut', 'Cut snapshots to exact screen size')
   .default('cut', false)
@@ -44,16 +43,30 @@ var argv = optimist
 
 if (argv.help || !argv.sites) return optimist.showHelp()
 
-var cookies = "[" + argv.cookie + "]" // wrap in square brackets, not a valid JSON otherwise
+var server = review()
 
-review()
-  .title(argv.title)
-  .sites(JSON.parse(argv.sites))
-  .resolutions(JSON.parse(argv.resolutions))
-  .wait(argv.wait)
-  .cookies(JSON.parse(cookies))
-  .cut(argv.cut)
-  .cache(argv.cache? { dir : __dirname + '/cache', expires : argv.cache } : false)
-  .listen(argv.port, function () {
-    console.log('-> Review on port ' + argv.port)
+server.title(argv.title)
+server.sites(JSON.parse(argv.sites))
+server.resolutions(JSON.parse(argv.resolutions))
+server.wait(argv.wait)
+server.cut(argv.cut)
+
+if (argv.cache) {
+  server.cache({
+    dir : __dirname + '/cache',
+    expires : argv.cache
   })
+} else {
+  server.cache(false)
+}
+
+var cookies = argv.cookies
+if (!Array.isArray(cookies)) cookies = [cookies]
+cookies.forEach(function(cookie){
+  server.cookie(JSON.parse(cookie))
+});
+
+server.listen(argv.port, function () {
+  console.log('-> Review on port ' + argv.port)
+})
+

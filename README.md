@@ -23,8 +23,7 @@ reviews in one server.
 $ npm install -g review
 
 $ review --sites='{"google":"http://google.com","facebook":"http://facebook.com"}' \
-  --resolutions='["1280x1024", "1900x1600", "800x600"]' \
-  --cookie='{"name":"cookie_monster","value":"i_eat_them","domain":"google.com"}'
+  --resolutions='["1280x1024", "1900x1600", "800x600"]'
 $ open http://localhost:4000/
 
 $ # and check
@@ -41,7 +40,7 @@ Options:
   --resolutions, -r  Resolutions as JSON Array of strings                      [default: "[\"1200x800\"]"]
   --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
   --cache, -c        Cache snapshots for x milliseconds                        [default: false]
-  --cookie           Adds a cookie to PhatomJS. Can be called multiple times   [default: "{}"]
+  --cookie           Add a cookie to PhatomJS
   --cut              Cut snapshots to exact screen size                        [default: false]
   --help, -h         Print usage instructions
 
@@ -60,15 +59,11 @@ review()
     dir : __dirname + '/cache/',
     expires : 60
   })
-  .cookies([{
+  .cookie({
     name : 'cookie monster',
     value : 'i eat them!',
     domain : 'google.com'
-  },{
-    name : 'universe',
-    value : '42',
-    domain : 'google.com'
-  }])
+  })
   .listen(4000)
 ```
 
@@ -121,11 +116,11 @@ Defaults to `0`.
 
 Cache rendered snapshots for `expires` seconds in `dir`.
 
-### review#cookies([cookie, cookie, ...])
+### review#cookie(cookie)
 
-An array of cookies that PhatomJS will use when requesting all pages.
+Add a cookie for PhantomJS to use. Can be called multiple times, to set multiple cookies.
 
-The individual cookie format is:
+The cookie format is:
 
 ```js
 {

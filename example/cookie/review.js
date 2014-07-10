@@ -19,6 +19,11 @@ review()
     value : 'this is what I do',
     domain : 'localhost'
   })
+  .cookie({
+    name : 'eating this eating that',  
+    value : 'cookies never make me fat',
+    domain : 'localhost'
+  })
   .listen(5000, function () {
     console.log('-> Review on port 5000')
   })
