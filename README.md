@@ -40,9 +40,9 @@ Options:
   --resolutions, -r  Resolutions as JSON Array of strings                      [default: "[\"1200x800\"]"]
   --wait, -w         Time to give the page to finish loading, in milliseconds  [default: 0]
   --cache, -c        Cache snapshots for x milliseconds                        [default: false]
-  --cookie           Make PhatomJS use this cookie-object                      [default: "{}"]
+  --cookie           Add a cookie to PhatomJS
   --cut              Cut snapshots to exact screen size                        [default: false]
-  --help, -h         Print usage instructions                                
+  --help, -h         Print usage instructions
 
 ```
 
@@ -118,7 +118,7 @@ Cache rendered snapshots for `expires` seconds in `dir`.
 
 ### review#cookie(cookie)
 
-PhatomJS will use this cookie when requesting all pages.
+Add a cookie for PhantomJS to use. Can be called multiple times, to set multiple cookies.
 
 The cookie format is:
 
@@ -156,6 +156,7 @@ $ npm install review    # for library
 
 * [juliangruber](https://github.com/juliangruber)
 * [jothirams](https://github.com/jothirams)
+* [jzelenkov](https://github.com/jzelenkov)
 
 ## License
 
