@@ -60,7 +60,7 @@ if (argv.cache) {
   server.cache(false)
 }
 
-var cookies = argv.cookies
+var cookies = argv.cookies || []
 if (!Array.isArray(cookies)) cookies = [cookies]
 cookies.forEach(function(cookie){
   server.cookie(JSON.parse(cookie))
