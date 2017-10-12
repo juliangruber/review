@@ -18,11 +18,12 @@
   "author": "Julian Gruber <julian@juliangruber.com>",
   "license": "MIT",
   "dependencies": {
-    "optimist": "~0.3.5",
-    "jade": "~0.28.1",
     "express": "~3.0.6",
+    "jade": "~0.28.1",
     "mkdirp": "~0.3.4",
+    "optimist": "~0.3.5",
+    "phantomjs": "~1.9.0-1",
     "span": "0.0.5",
-    "phantomjs": "~1.9.0-1"
+    "webdriverio": "^4.8.0"
   }
 }
