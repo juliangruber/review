@@ -37,6 +37,9 @@ var argv = optimist
   .describe('cut', 'Cut snapshots to exact screen size')
   .default('cut', false)
 
+  .describe('plugin', 'Set snapshot plugin')
+  .default('plugin', 'phantomjs')
+
   .describe('help', 'Print usage instructions')
   .alias('h', 'help')
   .argv
@@ -50,6 +53,7 @@ server.sites(JSON.parse(argv.sites))
 server.resolutions(JSON.parse(argv.resolutions))
 server.wait(argv.wait)
 server.cut(argv.cut)
+server.plugin(argv.plugin)
 
 if (argv.cache) {
   server.cache({
