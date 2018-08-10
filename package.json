@@ -18,11 +18,11 @@
   "author": "Julian Gruber <julian@juliangruber.com>",
   "license": "MIT",
   "dependencies": {
-    "optimist": "~0.3.5",
-    "jade": "~0.28.1",
-    "express": "~3.0.6",
-    "mkdirp": "~0.3.4",
-    "span": "0.0.5",
-    "phantomjs": "~1.9.0-1"
+    "optimist": "~0.6.1",
+    "jade": "~1.11.0",
+    "express": "~4.16.3",
+    "mkdirp": "~0.5.1",
+    "span": "0.0.6",
+    "phantomjs": "~2.1.7"
   }
 }
